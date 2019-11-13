@@ -20,6 +20,8 @@
 				 ->load_settings()
 				 ->register_scripts()
 				 ->get_root()->add_section( $this );
+
+			$this->add_service();
 			
 			if($this->get_setting('specific_pages_only')->run_type()->get_data()){
 				$this->google_optimize_metabox->set_parent($this);
