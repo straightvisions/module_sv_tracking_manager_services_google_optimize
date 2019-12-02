@@ -4,7 +4,7 @@
 	/**
 	 * @version         1.000
 	 * @author			straightvisions GmbH
-	 * @package			sv100
+	 * @package			sv_tracking_manager
 	 * @copyright		2019 straightvisions GmbH
 	 * @link			https://straightvisions.com
 	 * @since			1.000
