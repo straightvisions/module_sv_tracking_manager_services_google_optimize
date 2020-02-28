@@ -23,7 +23,7 @@
 
 			$this->add_service();
 			
-			if($this->get_setting('specific_pages_only')->run_type()->get_data()){
+			if($this->get_setting('specific_pages_only')->get_data()){
 				$this->google_optimize_metabox->set_parent($this);
 				$this->google_optimize_metabox->set_root($this->get_root());
 				$this->google_optimize_metabox->init();
@@ -75,19 +75,19 @@
 		}
 		public function is_active(): bool{
 			// activate not set
-			if(!$this->get_setting('activate')->run_type()->get_data()){
+			if(!$this->get_setting('activate')->get_data()){
 				return false;
 			}
 			// activate not true
-			if($this->get_setting('activate')->run_type()->get_data() !== '1'){
+			if($this->get_setting('activate')->get_data() !== '1'){
 				return false;
 			}
 			// Tracking ID not set
-			if(!$this->get_setting('tracking_id')->run_type()->get_data()){
+			if(!$this->get_setting('tracking_id')->get_data()){
 				return false;
 			}
 			// Tracking ID empty
-			if(strlen(trim($this->get_setting('tracking_id')->run_type()->get_data())) === 0){
+			if(strlen(trim($this->get_setting('tracking_id')->get_data())) === 0){
 				return false;
 			}
 			
@@ -101,10 +101,10 @@
 				$this->get_script('default')
 					 ->set_is_enqueued()
 					 ->set_localized(array(
-						 'tracking_id'	=> $this->get_setting('tracking_id')->run_type()->get_data()
+						 'tracking_id'	=> $this->get_setting('tracking_id')->get_data()
 					 ));
 				
-				if($this->get_setting('activate_anti_flicker')->run_type()->get_data()){
+				if($this->get_setting('activate_anti_flicker')->get_data()){
 					$this->get_script('anti_flicker')->set_is_enqueued();
 					$this->get_script('css_anti_flicker')->set_is_enqueued();
 				}
